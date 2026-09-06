@@ -1,4 +1,4 @@
-# llm-proxy — stateless mTLS reverse proxy for 21 AI providers
+# ZeroVault — stateless mTLS reverse proxy for 21 AI providers
 
 A minimal reverse proxy that sits between an AI/mobile agent and the LLM
 providers. The proxy holds **no credentials**: every provider API key lives
