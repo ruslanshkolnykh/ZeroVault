@@ -304,10 +304,10 @@ new Anthropic({
       <button role="tab" aria-selected="false" data-pane="sw">Swift</button>
     </div>
     <div class="tabpanes">
-<pre class="code" data-pane="js"><span class="c">// sdk/js — Node 18+, zero dependencies</span>
-<span class="b">const</span> { LlmProxyClient } = require(<span class="s">'@llm-proxy/sdk'</span>);
+<pre class="code" data-pane="js"><span class="c">// zerovaultproxy (npm) — Node 18+, zero dependencies</span>
+<span class="b">const</span> { ZeroVaultProxyClient } = require(<span class="s">'zerovaultproxy'</span>);
 
-<span class="b">const</span> client = <span class="b">new</span> LlmProxyClient({
+<span class="b">const</span> client = <span class="b">new</span> ZeroVaultProxyClient({
   proxyUrl: <span class="s">'https://proxy.example.com:8443'</span>,
   cert: fs.readFileSync(<span class="s">'device.crt'</span>), key: fs.readFileSync(<span class="s">'device.key'</span>),
   ca: fs.readFileSync(<span class="s">'ca.crt'</span>),                    <span class="c">// pinned</span>
@@ -325,10 +325,10 @@ new Anthropic({
     { json: { model: <span class="s">'gpt-4o-mini'</span>, stream: <span class="g">true</span>, messages } })) {
   render(ev.data);
 }</pre>
-<pre class="code" data-pane="py" hidden><span class="c"># sdk/python — 3.9+, stdlib only</span>
-<span class="b">from</span> llmproxy <span class="b">import</span> LlmProxyClient
+<pre class="code" data-pane="py" hidden><span class="c"># zerovaultproxy (PyPI) — 3.9+, stdlib only</span>
+<span class="b">from</span> zerovault <span class="b">import</span> ZeroVaultProxyClient
 
-client = LlmProxyClient(
+client = ZeroVaultProxyClient(
     proxy_url=<span class="s">"https://proxy.example.com:8443"</span>,
     cert=<span class="s">"device.crt"</span>, key=<span class="s">"device.key"</span>, ca=<span class="s">"ca.crt"</span>,  <span class="c"># CA pinned</span>
 )
@@ -342,7 +342,7 @@ print(r.json()[<span class="s">"choices"</span>][<span class="g">0</span>][<span
         json={<span class="s">"model"</span>: <span class="s">"deepseek-chat"</span>, <span class="s">"stream"</span>: <span class="g">True</span>, <span class="s">"messages"</span>: msgs}):
     handle(ev.data)</pre>
 <pre class="code" data-pane="kt" hidden><span class="c">// sdk/kotlin — OkHttp; identity from the enrolled .p12</span>
-<span class="b">val</span> client = LlmProxyClient(
+<span class="b">val</span> client = ZeroVaultProxyClient(
     proxyUrl = <span class="s">"https://proxy.example.com:8443"</span>,
     p12 = context.openFileInput(<span class="s">"device.p12"</span>),
     p12Password = enrollmentPassword,
@@ -356,7 +356,7 @@ print(r.json()[<span class="s">"choices"</span>][<span class="g">0</span>][<span
     jsonBody = <span class="s">"""{"model":"glm-4.6","messages":[…]}"""</span>,
 )</pre>
 <pre class="code" data-pane="sw" hidden><span class="c">// sdk/swift — URLSession; identity from SecPKCS12Import</span>
-<span class="b">let</span> client = LlmProxyClient(
+<span class="b">let</span> client = ZeroVaultProxyClient(
     proxyURL: URL(string: <span class="s">"https://proxy.example.com:8443"</span>)!,
     identity: enrolledIdentity,
     caCertificate: pinnedCA,                          <span class="c">// pinned</span>
