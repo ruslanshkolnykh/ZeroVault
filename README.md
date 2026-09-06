@@ -7,12 +7,12 @@ authenticate to the proxy with **mTLS client certificates**, so stolen
 proxy hardware or a leaked proxy image reveals nothing.
 
 ```
-┌────────────────┐   mTLS (client cert)    ┌───────────┐   TLS    ┌──────────────────┐
+┌─────────────────┐   mTLS (client cert)    ┌───────────┐   TLS    ┌───────────────────┐
 │ AI/Mobile agent │ ──────────────────────▶ │ llm-proxy │ ───────▶ │ api.anthropic.com │
 │  holds:         │  /anthropic/v1/messages │           │          │ api.openai.com    │
 │  • client cert  │  x-api-key: sk-ant-...  │ stateless │          │ api.deepseek.com  │
-│  • API keys     │  (key forwarded as-is)  │ no keys   │          └──────────────────┘
-└────────────────┘                          └───────────┘
+│  • API keys     │  (key forwarded as-is)  │ no keys   │          └───────────────────┘
+└─────────────────┘                         └───────────┘
 ```
 
 Three interchangeable implementations (pick one): `node/` (zero
